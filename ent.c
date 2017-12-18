@@ -254,6 +254,44 @@ Bool detection(Entity *self, Entity *targ)
 	
 }
 
+/*spawn*/
+
+/*
+typedef struct
+{
+	char   *name;
+	Entity *(*spawnFunction)(Vector2D position);
+}SpawnPair;
+
+Entity *spawn_entity(char *name, Vector2D position)
+{
+	SpawnPair *spawn;
+	for (spawn = _spawnList; spawn->name != 0; spawn++)
+	{
+		if ((gf2d_line_cmp(spawn->name, name) == 0) && (spawn->spawnFunction != NULL))
+		{
+			return spawn->spawnFunction(position);
+		}
+	}
+	slog("no spawn candidate found for %s", name);
+	return NULL;
+}
+*/
+
+void spawn_enemy(int x, int y, Entity *enemy)
+{
+	gf2d_entity_new();
+
+	//enemy->sprite = sprite;
+	enemy->inuse = 1;
+	enemy->position = vector2d(x, y);
+	enemy->frame = 0;
+	enemy->scale = vector2d(0.5, 0.5);
+	enemy->scaleCenter = vector2d(0, 0);
+
+	//gf2d_entity_draw(&enemy);
+}
+
 /*int gf2d_entity_deal_damage(Entity *target, Entity *inflictor, Entity *attacker, int damage, Vector2D kick)
 {
 	Vector2D k;

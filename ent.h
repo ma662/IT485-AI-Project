@@ -137,6 +137,9 @@ void gf2d_entity_post_sync_all();
 // call collision
 Bool collide(Entity *self, Entity *target);
 
+// call spawn
+void spawn_enemy(int x, int y, Entity *enemy);
+
 
 /**
 * @brief deal damage to target entity
